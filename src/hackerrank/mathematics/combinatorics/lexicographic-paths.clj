@@ -8,7 +8,6 @@
 (defn combination-with-repetition
   "Calculates (h+v)! / (h! * v!)"
   [h v]
-  (println h v)
   (/ (factorial (+ h v)) (* (factorial h) (factorial v))))
 
 (def memoized-combination (memoize combination-with-repetition))
@@ -33,8 +32,7 @@
             (find-next-step (dec h) v k))
           (do
             (print "V")
-            (find-next-step h (dec v) (- k (memoized-combination (dec h) v))))
-          )))))
+            (find-next-step h (dec v) (- k (memoized-combination (dec h) v)))))))))
 
 (defn execute-t-cases
   [t]
